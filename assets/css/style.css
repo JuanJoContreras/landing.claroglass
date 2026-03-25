@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgba(red, green, blue, alpha);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.header {
+  height: 10em;
+  padding: 5em;
+  /* opacit5:0.5;*/
+  background-image: url("../css/img/verne-ho-0LAJfSNa-xQ-unsplash\ WCRISTAL.jpg");
+  background: size 1px;
+  background-position: center;
+  background-repeat: no-repeat;
+  color:r;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.header h1 {
+  text-align: center;
+}
+
+.header p {
+  text-align: center;
+}
+
+.servicios {
+  width: 100%;
+  margin: auto;
+}
+
+.servicios td {
+  width: 50%;
+  padding: 2em;
+  text-align: right;
+}
+
+.servicios img {
+  width: 80%;
+  border: solid 1px royalblue;
+}
+
+.footer {
+  height: 1em;
+  padding: 2em;
+  /*background-image: url("../css/img/LOGO\ 3.png");*/
+  background: size 1em;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: chartreuse;
+  color: rgb(255, 0, 106);
+  margin: auto;
+  text-align: center;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
