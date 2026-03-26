@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="ClaroGlass - Cierres plegables de cristal, barandas, lucarnas y escaleras en Chile. Tecnologia europea, 9 anos de garantia. Cotiza gratis hoy.">
 <meta name="keywords" content="cierres de cristal plegables, cortinas de cristal, barandas de cristal, lucarnas de cristal, cierres terraza Santiago, cierres quincho, ClaroGlass Chile, Cristales Sistemas Perfiles">
-<meta name="robots" content="index, follow">h
+<meta name="robots" content="index, follow">
 <meta property="og:title" content="CLAROGLASS | Cierres plegables de Cristal - Barandas y Lucarnas Chile">
 <meta property="og:description" content="ClaroGlass - Más de 3000 proyectos en Chile. Cierres plegables de cristal, barandas y lucarnas con certificación europea. Cotiza gratis hoy.">
 <meta property="og:url" content="https://juanjocontreras.github.io/landingpage.taller/">
@@ -67,7 +67,7 @@ nav.scrolled{
 }
 .nav-logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:#fff}
 .nav-logo-icon{display:flex;align-items:center;justify-content:center;}
-.nav-logo-text{display:flex;flex-direction:column}
+.nav-logo-text{display:flex;flex-direction:column;justify-content:center}
 .nav-logo-text span{font-size:.6rem;color:rgba(255,255,255,.65);text-transform:uppercase;letter-spacing:2px}
 .nav-links{display:flex;gap:.1rem;list-style:none;align-items:center}
 .nav-links a{
@@ -731,7 +731,7 @@ footer{background:#071626;padding:4rem 2rem 1.5rem}
 
 
 /* ===== LOGO IMAGEN NAVBAR ===== */
-.nav-logo-img{height:65px;width:auto;max-width:85px;object-fit:contain;display:block}
+.nav-logo-img{height:78px;width:auto;max-width:105px;object-fit:contain;display:block}
 /* ===== GALERIA GRID 3 COLUMNAS ===== */
 .galeria-grid-full{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
 .galeria-item-sm{position:relative;overflow:hidden;border-radius:var(--radius-lg);box-shadow:var(--shadow)}
@@ -744,7 +744,7 @@ footer{background:#071626;padding:4rem 2rem 1.5rem}
 @media(max-width:480px){
 nav{padding:.7rem 1rem}
 .nav-logo-img{height:34px}
-.nav-logo-text strong{font-size:1.1rem;color:#ffffff!important;font-weight:700;letter-spacing:1.5px}
+.nav-logo-text strong{font-size:1.25rem;color:#ffffff!important;font-weight:700;letter-spacing:1.5px;line-height:1}
 .hero-inner{padding:4.5rem 1rem 1.5rem}
 .hero-text h1{font-size:1.75rem;letter-spacing:.5px}
 .hero-text p{font-size:.85rem}
@@ -1383,13 +1383,38 @@ footer{padding:2rem .8rem 1rem}
       <h2>Quieres saber más?</h2>
       <p class="sub">Completa tus datos y te contactamos en menos de 24 horas</p>
       <div class="contact-form">
-        <div class="form-row">
-          <div class="fg"><input type="text" placeholder="Nombre *"></div>
-          <div class="fg"><input type="text" placeholder="Apellidos *"></div>
-        </div>
+        <div class="fg"><input type="text" id="nombre2" name="nombre2" placeholder="Nombre completo *" required></div>
         <div class="form-row">
           <div class="fg"><input type="email" placeholder="Correo electronico *"></div>
           <div class="fg"><input type="tel" placeholder="Telefono *"></div>
+        </div>
+        <div class="form-row">
+          <div class="fg">
+            <select id="region2" name="region2">
+              <option value="">-- Región --</option>
+              <option>Región de Arica y Parinacota</option>
+              <option>Región de Tarapacá</option>
+              <option>Región de Antofagasta</option>
+              <option>Región de Atacama</option>
+              <option>Región de Coquimbo</option>
+              <option>Región de Valparaíso</option>
+              <option>Región Metropolitana de Santiago</option>
+              <option>Región del Libertador General Bernardo O'Higgins</option>
+              <option>Región del Maule</option>
+              <option>Región de Ñuble</option>
+              <option>Región del Biobío</option>
+              <option>Región de La Araucanía</option>
+              <option>Región de Los Ríos</option>
+              <option>Región de Los Lagos</option>
+              <option>Región de Aysén del General Carlos Ibáñez del Campo</option>
+              <option>Región de Magallanes y de la Antártica Chilena</option>
+            </select>
+          </div>
+          <div class="fg">
+            <select id="comuna2" name="comuna2">
+              <option value="">-- Comuna --</option>
+            </select>
+          </div>
         </div>
         <div class="fg">
           <select>
@@ -1589,6 +1614,40 @@ document.querySelectorAll('.nav-links a').forEach(a => {
     document.getElementById('navLinks').classList.remove('open');
   });
 });
+</script>
+
+<script>
+(function() {
+  var comunas = {
+    "Región de Arica y Parinacota":["Arica","Camarones","Putre","General Lagos"],
+    "Región de Tarapacá":["Iquique","Alto Hospicio","Pozo Almonte","Camiña","Colchane","Huara","Pica"],
+    "Región de Antofagasta":["Antofagasta","Mejillones","Sierra Gorda","Taltal","Calama","Ollagüe","San Pedro de Atacama","Tocopilla","María Elena"],
+    "Región de Atacama":["Copiapó","Caldera","Tierra Amarilla","Chañaral","Diego de Almagro","Vallenar","Alto del Carmen","Freirina","Huasco"],
+    "Región de Coquimbo":["La Serena","Coquimbo","Andacollo","La Higuera","Paihuano","Vicuña","Illapel","Canela","Los Vilos","Salamanca","Ovalle","Combarbalá","Monte Patria","Punitaqui","Río Hurtado"],
+    "Región de Valparaíso":["Valparaíso","Casablanca","Concón","Juan Fernández","Puchuncaví","Quintero","Viña del Mar","Isla de Pascua","Los Andes","Calle Larga","Rinconada","San Esteban","La Ligua","Cabildo","Papudo","Petorca","Zapallar","Quillota","Calera","Hijuelas","La Cruz","Nogales","San Antonio","Algarrobo","Cartagena","El Quisco","El Tabo","Santo Domingo","San Felipe","Catemu","Llaillay","Panquehue","Putaendo","Santa María","Quilpué","Limache","Olmué","Villa Alemana"],
+    "Región Metropolitana de Santiago":["Santiago","Cerrillos","Cerro Navia","Conchalí","El Bosque","Estación Central","Huechuraba","Independencia","La Cisterna","La Florida","La Granja","La Pintana","La Reina","Las Condes","Lo Barnechea","Lo Espejo","Lo Prado","Macul","Maipú","Ñuñoa","Pedro Aguirre Cerda","Peñalolén","Providencia","Pudahuel","Quilicura","Quinta Normal","Recoleta","Renca","San Joaquín","San Miguel","San Ramón","Vitacura","Puente Alto","Pirque","San José de Maipo","Colina","Lampa","Tiltil","San Bernardo","Buin","Calera de Tango","Paine","Melipilla","Alhué","Curacaví","María Pinto","San Pedro","Talagante","El Monte","Isla de Maipo","Padre Hurtado","Peñaflor"],
+    "Región del Libertador General Bernardo O'Higgins":["Rancagua","Codegua","Coinco","Coltauco","Doñihue","Graneros","Las Cabras","Machalí","Malloa","Mostazal","Olivar","Peumo","Pichidegua","Quinta de Tilcoco","Rengo","Requínoa","San Vicente","Pichilemu","La Estrella","Litueche","Marchihue","Navidad","Paredones","San Fernando","Chépica","Chimbarongo","Lolol","Nancagua","Palmilla","Peralillo","Placilla","Pumanque","Santa Cruz"],
+    "Región del Maule":["Talca","Constitución","Curepto","Empedrado","Maule","Pelarco","Pencahue","Río Claro","San Clemente","San Rafael","Cauquenes","Chanco","Pelluhue","Curicó","Hualañé","Licantén","Molina","Rauco","Romeral","Sagrada Familia","Teno","Vichuquén","Linares","Colbún","Longaví","Parral","Retiro","San Javier","Villa Alegre","Yerbas Buenas"],
+    "Región de Ñuble":["Chillán","Bulnes","Cobquecura","Coelemu","Coihueco","Chillán Viejo","El Carmen","Ninhue","Ñiquén","Pemuco","Pinto","Portezuelo","Quillón","Quirihue","Ránquil","San Carlos","San Fabián","San Ignacio","San Nicolás","Trehuaco","Yungay"],
+    "Región del Biobío":["Concepción","Coronel","Chiguayante","Florida","Hualpén","Hualqui","Lota","Penco","San Pedro de la Paz","Santa Juana","Talcahuano","Tomé","Lebu","Arauco","Cañete","Contulmo","Curanilahue","Los Álamos","Tirúa","Los Ángeles","Antuco","Cabrero","Laja","Mulchén","Nacimiento","Negrete","Quilaco","Quilleco","San Rosendo","Santa Bárbara","Tucapel","Yumbel","Alto Biobío"],
+    "Región de La Araucanía":["Temuco","Carahue","Cunco","Curarrehue","Freire","Galvarino","Gorbea","Lautaro","Loncoche","Melipeuco","Nueva Imperial","Padre Las Casas","Perquenco","Pitrufquén","Pucón","Saavedra","Teodoro Schmidt","Toltén","Vilcún","Villarrica","Cholchol","Angol","Collipulli","Curacautín","Ercilla","Lonquimay","Los Sauces","Lumaco","Purén","Renaico","Traigúen","Victoria"],
+    "Región de Los Ríos":["Valdivia","Corral","Futrono","La Unión","Lago Ranco","Lanco","Los Lagos","Máfil","Mariquina","Paillaco","Panguipulli","Río Bueno"],
+    "Región de Los Lagos":["Puerto Montt","Calbuco","Cochamó","Fresia","Frutillar","Los Muermos","Llanquihue","Maullín","Puerto Varas","Castro","Ancud","Chonchi","Curaco de Vélez","Dalcahue","Puqueldón","Queilen","Quellón","Quemchi","Quinchao","Osorno","Puerto Octay","Purranque","Puyehue","Río Negro","San Juan de la Costa","San Pablo","Chaitén","Futaleufú","Hualaihué","Palena"],
+    "Región de Aysén del General Carlos Ibáñez del Campo":["Coyhaique","Lago Verde","Aysén","Cisnes","Guaitecas","Cochrane","O'Higgins","Tortel","Chile Chico","Río Ibáñez"],
+    "Región de Magallanes y de la Antártica Chilena":["Punta Arenas","Laguna Blanca","Río Verde","San Gregorio","Cabo de Hornos","Antártica","Porvenir","Primavera","Timaukel","Natales","Torres del Paine"]
+  };
+  function fillComunas(rSel, cSel) {
+    var r = rSel.value;
+    cSel.innerHTML = '<option value="">-- Comuna --</option>';
+    if (comunas[r]) { comunas[r].forEach(function(c){ var o=document.createElement('option'); o.value=c; o.textContent=c; cSel.appendChild(o); }); }
+  }
+  document.addEventListener('DOMContentLoaded', function() {
+    var r1=document.getElementById('region'), c1=document.getElementById('comuna');
+    if(r1&&c1) r1.addEventListener('change', function(){ fillComunas(r1,c1); });
+    var r2=document.getElementById('region2'), c2=document.getElementById('comuna2');
+    if(r2&&c2) r2.addEventListener('change', function(){ fillComunas(r2,c2); });
+  });
+})();
 </script>
 </body>
 </html>
