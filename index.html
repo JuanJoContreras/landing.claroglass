@@ -881,8 +881,8 @@ footer{padding:2rem .8rem 1rem}
       <h3>Solicita tu Cotización</h3>
       <p class="form-sub">Te contactamos en menos de 24 horas</p>
       <div class="fg"><input type="text" id="nombre" name="nombre" placeholder="Nombre completo *" required></div>
-      <div class="fg"><input type="email" placeholder="Correo electrónico *"></div>
-      <div class="fg"><input type="tel" placeholder="Teléfono *"></div>
+      <div class="fg"><input type="email" id="email" name="email" placeholder="Correo electrónico *" required></div>
+      <div class="fg"><input type="tel" id="telefono" name="telefono" placeholder="Teléfono *" required></div>
       <div class="form-row">
         <div class="fg">
           <select id="region" name="region">
@@ -912,7 +912,7 @@ footer{padding:2rem .8rem 1rem}
         </div>
       </div>
       <div class="fg">
-        <select>
+        <select id="producto" name="producto">
           <option value="">-- Producto de interés --</option>
           <option>Cierres Plegables de Cristal </option>
           <option>Barandas de Cristal</option>
@@ -922,7 +922,7 @@ footer{padding:2rem .8rem 1rem}
         </select>
       </div>
       <div class="fg">
-        <select>
+        <select id="como" name="como">
           <option value="">Cómo se entero de nosotros?</option>
           <option>Google / Buscador</option>
           <option>Redes Sociales</option>
@@ -931,8 +931,9 @@ footer{padding:2rem .8rem 1rem}
           <option>Otro</option>
         </select>
       </div>
-      <div class="fg"><textarea placeholder="Mensaje (opcional)"></textarea></div>
-      <button class="btn-submit" onclick="alert('Gracias! Te contactaremos pronto.')">SOLICITAR COTIZACIÓN</button>
+      <div class="fg"><textarea id="mensaje" name="mensaje" placeholder="Mensaje (opcional)"></textarea></div>
+      <div id="form-msg" style="display:none;padding:.6rem;border-radius:6px;text-align:center;font-weight:600;margin-bottom:.5rem"></div>
+      <button class="btn-submit" id="btnCotizar" onclick="enviarCotizacion(this)">SOLICITAR COTIZACIÓN</button>
     </div>
   </div>
   <div class="hero-dots" id="heroDots">
@@ -1649,5 +1650,74 @@ document.querySelectorAll('.nav-links a').forEach(a => {
   });
 })();
 </script>
+
+<script>
+function enviarCotizacion(btn) {
+  var nombre = document.getElementById('nombre').value.trim();
+  var email = document.getElementById('email').value.trim();
+  var telefono = document.getElementById('telefono').value.trim();
+  var region = document.getElementById('region').value;
+  var comuna = document.getElementById('comuna').value;
+  var producto = document.getElementById('producto').value;
+  var como = document.getElementById('como').value;
+  var mensaje = document.getElementById('mensaje').value.trim();
+  var msgDiv = document.getElementById('form-msg');
+
+  if (!nombre || !email || !telefono) {
+    msgDiv.style.display = 'block';
+    msgDiv.style.background = '#fde8e8';
+    msgDiv.style.color = '#c0392b';
+    msgDiv.textContent = 'Por favor completa los campos obligatorios.';
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = 'Enviando...';
+  msgDiv.style.display = 'none';
+
+  var fd = new FormData();
+  fd.append('nombre', nombre);
+  fd.append('email', email);
+  fd.append('telefono', telefono);
+  fd.append('region', region);
+  fd.append('comuna', comuna);
+  fd.append('producto', producto);
+  fd.append('como', como);
+  fd.append('mensaje', mensaje);
+
+  fetch('contact.php', { method: 'POST', body: fd })
+    .then(function(r){ return r.text(); })
+    .then(function(resp) {
+      if (resp.trim() === 'ok') {
+        msgDiv.style.background = '#e8f5e9';
+        msgDiv.style.color = '#1b5e20';
+        msgDiv.textContent = '¡Gracias! Tu cotización fue enviada. Te contactaremos pronto.';
+        document.getElementById('nombre').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('telefono').value = '';
+        document.getElementById('region').value = '';
+        document.getElementById('comuna').innerHTML = '<option value="">-- Comuna --<\/option>';
+        document.getElementById('producto').value = '';
+        document.getElementById('como').value = '';
+        document.getElementById('mensaje').value = '';
+      } else {
+        msgDiv.style.background = '#fde8e8';
+        msgDiv.style.color = '#c0392b';
+        msgDiv.textContent = 'Error al enviar. Por favor intenta nuevamente o llámanos.';
+      }
+      msgDiv.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'SOLICITAR COTIZACIÓN';
+    })
+    .catch(function() {
+      msgDiv.style.background = '#fde8e8';
+      msgDiv.style.color = '#c0392b';
+      msgDiv.textContent = 'Error de conexión. Por favor intenta nuevamente.';
+      msgDiv.style.display = 'block';
+      btn.disabled = false;
+      btn.textContent = 'SOLICITAR COTIZACIÓN';
+    });
+}
+<\/script>
 </body>
 </html>
