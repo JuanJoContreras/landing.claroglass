@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="ClaroGlass - Cierres plegables de cristal, barandas, lucarnas y escaleras en Chile. Tecnologia europea, 9 anos de garantia. Cotiza gratis hoy.">
 <meta name="keywords" content="cierres de cristal plegables, cortinas de cristal, barandas de cristal, lucarnas de cristal, cierres terraza Santiago, cierres quincho, ClaroGlass Chile, Cristales Sistemas Perfiles">
-<meta name="robots" content="index, follow">
+<meta name="robots" content="index, follow">h
 <meta property="og:title" content="CLAROGLASS | Cierres plegables de Cristal - Barandas y Lucarnas Chile">
 <meta property="og:description" content="ClaroGlass - Más de 3000 proyectos en Chile. Cierres plegables de cristal, barandas y lucarnas con certificación europea. Cotiza gratis hoy.">
 <meta property="og:url" content="https://juanjocontreras.github.io/landingpage.taller/">
@@ -731,7 +731,7 @@ footer{background:#071626;padding:4rem 2rem 1.5rem}
 
 
 /* ===== LOGO IMAGEN NAVBAR ===== */
-.nav-logo-img{height:48px;width:auto;max-width:60px;object-fit:contain;display:block}
+.nav-logo-img{height:65px;width:auto;max-width:85px;object-fit:contain;display:block}
 /* ===== GALERIA GRID 3 COLUMNAS ===== */
 .galeria-grid-full{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
 .galeria-item-sm{position:relative;overflow:hidden;border-radius:var(--radius-lg);box-shadow:var(--shadow)}
@@ -744,7 +744,7 @@ footer{background:#071626;padding:4rem 2rem 1.5rem}
 @media(max-width:480px){
 nav{padding:.7rem 1rem}
 .nav-logo-img{height:34px}
-.nav-logo-text strong{font-size:.95rem}
+.nav-logo-text strong{font-size:1.1rem;color:#ffffff;font-weight:700;letter-spacing:1.5px}
 .hero-inner{padding:4.5rem 1rem 1.5rem}
 .hero-text h1{font-size:1.75rem;letter-spacing:.5px}
 .hero-text p{font-size:.85rem}
@@ -880,12 +880,37 @@ footer{padding:2rem .8rem 1rem}
     <div class="hero-form-wrap reveal">
       <h3>Solicita tu Cotización</h3>
       <p class="form-sub">Te contactamos en menos de 24 horas</p>
-      <div class="form-row">
-        <div class="fg"><input type="text" placeholder="Nombre *"></div>
-        <div class="fg"><input type="text" placeholder="Apellidos *"></div>
-      </div>
+      <div class="fg"><input type="text" id="nombre" name="nombre" placeholder="Nombre completo *" required></div>
       <div class="fg"><input type="email" placeholder="Correo electrónico *"></div>
       <div class="fg"><input type="tel" placeholder="Teléfono *"></div>
+      <div class="form-row">
+        <div class="fg">
+          <select id="region" name="region">
+            <option value="">-- Región --</option>
+            <option>Región de Arica y Parinacota</option>
+            <option>Región de Tarapacá</option>
+            <option>Región de Antofagasta</option>
+            <option>Región de Atacama</option>
+            <option>Región de Coquimbo</option>
+            <option>Región de Valparaíso</option>
+            <option>Región Metropolitana de Santiago</option>
+            <option>Región del Libertador General Bernardo O'Higgins</option>
+            <option>Región del Maule</option>
+            <option>Región de Ñuble</option>
+            <option>Región del Biobío</option>
+            <option>Región de La Araucanía</option>
+            <option>Región de Los Ríos</option>
+            <option>Región de Los Lagos</option>
+            <option>Región de Aysén del General Carlos Ibáñez del Campo</option>
+            <option>Región de Magallanes y de la Antártica Chilena</option>
+          </select>
+        </div>
+        <div class="fg">
+          <select id="comuna" name="comuna">
+            <option value="">-- Comuna --</option>
+          </select>
+        </div>
+      </div>
       <div class="fg">
         <select>
           <option value="">-- Producto de interés --</option>
