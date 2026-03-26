@@ -1686,9 +1686,9 @@ function enviarCotizacion(btn) {
   fd.append('mensaje', mensaje);
 
   fetch('contact.php', { method: 'POST', body: fd })
-    .then(function(r){ return r.text(); })
+    .then(function(r){ return r.json(); })
     .then(function(resp) {
-      if (resp.trim() === 'ok') {
+      if (resp && resp.success) {
         msgDiv.style.background = '#e8f5e9';
         msgDiv.style.color = '#1b5e20';
         msgDiv.textContent = '¡Gracias! Tu cotización fue enviada. Te contactaremos pronto.';
