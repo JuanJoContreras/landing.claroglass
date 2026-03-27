@@ -26,12 +26,38 @@
 <meta name="twitter:description" content="Más de 3000 proyectos en Chile. Cierres plegables de cristal con certificación europea. Cotiza gratis.">
 <meta name="twitter:image" content="https://claroglass.cl/assets/logo-claroglass.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"ClaroGlass","description":"Cierres plegables de cristal, barandas, lucarnas y escaleras en Chile. Tecnología europea, 9 años de garantía.","url":"https://claroglass.cl/","telephone":"+56947533300","email":"contacto@claroglass.cl","address":{"@type":"PostalAddress","addressLocality":"Santiago","addressCountry":"CL"},"image":"https://claroglass.cl/assets/logo-claroglass.png","priceRange":"$","openingHours":["Mo-Fr 09:00-18:00","Sa 09:00-12:00"],"geo":{"@type":"GeoCoordinates","latitude":-33.4489,"longitude":-70.6693},"areaServed":["Santiago","Viña del Mar","Concepción","Antofagasta","Chile"],"sameAs":["https://www.instagram.com/claroglass.cl","https://www.facebook.com/claroglass"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"127","bestRating":"5"}}</script>
-<!-- Google tag (gtag.js) — REEMPLAZA G-Y1KH087Z89 con tu ID de GA4 y AW-XXXXXXXXX con tu ID de Google Ads -->
+
+<!-- 1. Google Analytics 4 | ClaroGlass -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y1KH087Z89"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Y1KH087Z89');gtag('config','AW-XXXXXXXXX');</script>
-<!-- Meta Pixel — REEMPLAZA 267947319268113431343 con tu ID real de Meta Pixel -->
-<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','267947319268113431343');fbq('track','PageView');</script>
-<noscript><img loading="lazy" height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=267947319268113431343&ev=PageView&noscript=1"/></noscript>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Y1KH087Z89', {
+    page_title: document.title,
+    page_location: window.location.href,
+    send_page_view: true
+  });
+</script>
+
+<!-- 2. Meta Pixel | ClaroGlass -->
+<script>
+  !function(f,b,e,v,n,t,s){
+    if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '267947319268113431343');
+  fbq('track', 'PageView');
+</script>
+<noscript>
+  <img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=267947319268113431343&ev=PageView&noscript=1"/>
+</noscript>
+
 <title>CLAROGLASS | Cierres Plegables de Cristal - Barandas y Lucarnas Chile</title>
 <link rel="preload" as="image" href="assets/img/cierre-cristal-viña-mar.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1687,6 +1713,7 @@ function enviarCotizacion(btn) {
   var como = document.getElementById('como').value;
   var mensaje = document.getElementById('mensaje').value.trim();
   var msgDiv = document.getElementById('form-msg');
+  msgDiv.style.display = 'none'; msgDiv.textContent = '';
   if (!nombre || !email || !telefono) {
     msgDiv.style.display = 'block';
     msgDiv.style.background = '#fde8e8';
