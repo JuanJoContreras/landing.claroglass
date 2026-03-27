@@ -1437,8 +1437,8 @@ footer{padding:2rem .8rem 1rem}
       <div class="contact-form">
         <div class="fg"><input type="text" id="nombre2" name="nombre2" placeholder="Nombre completo *" required></div>
         <div class="form-row">
-          <div class="fg"><input type="email" placeholder="Correo electronico *"></div>
-          <div class="fg"><input type="tel" placeholder="Telefono *"></div>
+          <div class="fg"><input type="email" id="email2" name="email2" placeholder="Correo electronico *" required></div>
+          <div class="fg"><input type="tel" id="telefono2" name="telefono2" placeholder="Telefono *" required></div>
         </div>
         <div class="form-row">
           <div class="fg">
@@ -1469,7 +1469,7 @@ footer{padding:2rem .8rem 1rem}
           </div>
         </div>
         <div class="fg">
-          <select>
+          <select id="motivo2" name="motivo2">
             <option value="">Motivo de contacto</option>
             <option>Cotización Cierres de Cristal</option>
             <option>Cotización Barandas</option>
@@ -1478,7 +1478,7 @@ footer{padding:2rem .8rem 1rem}
           </select>
         </div>
         <div class="fg">
-          <select>
+          <select id="como2" name="como2">
             <option value="">Cómo se entero de nosotros?</option>
             <option>Google / Buscador</option>
             <option>Redes Sociales</option>
@@ -1487,7 +1487,8 @@ footer{padding:2rem .8rem 1rem}
             <option>Otro</option>
           </select>
         </div>
-        <div class="fg"><textarea placeholder="Mensaje"></textarea></div>
+        <div class="fg"><textarea id="mensaje2" name="mensaje2" placeholder="Mensaje"></textarea></div>
+        <div id="form-msg2" style="display:none;padding:.6rem;border-radius:6px;text-align:center;font-weight:600;margin-bottom:.5rem"></div>
         <button class="btn-submit" id="btnContacto" onclick="enviarContacto(this)">ENVIAR SOLICITUD</button>
       </div>
     </div>
@@ -1740,7 +1741,6 @@ function enviarCotizacion(btn) {
       // === TRACKING: Lead generado ===
       if (typeof gtag === 'function') {
         gtag('event', 'generate_lead', { event_category: 'formulario_hero', event_label: producto || 'cotizacion_general', value: 1 });
-        gtag('event', 'conversion', { send_to: 'AW-XXXXXXXXX' });
       }
       if (typeof fbq === 'function') {
         fbq('track', 'Lead', { content_name: 'Formulario Hero ClaroGlass', content_category: producto || 'cotizacion_general' });
@@ -1784,21 +1784,61 @@ function enviarCotizacion(btn) {
 <!-- FIN CRM ClaroGlass | Ctrl+Shift+W -->
 <script>
 function enviarContacto(btn) {
-  var nombre = document.getElementById('nombre2').value.trim();
+  var nombre   = document.getElementById('nombre2').value.trim();
+  var email    = document.getElementById('email2') ? document.getElementById('email2').value.trim() : '';
+  var telefono = document.getElementById('telefono2') ? document.getElementById('telefono2').value.trim() : '';
+  var region   = document.getElementById('region2').value;
+  var comuna   = document.getElementById('comuna2').value;
+  var motivo   = document.getElementById('motivo2') ? document.getElementById('motivo2').value : '';
+  var como     = document.getElementById('como2') ? document.getElementById('como2').value : '';
+  var mensaje  = document.getElementById('mensaje2') ? document.getElementById('mensaje2').value.trim() : '';
+  var msgDiv   = document.getElementById('form-msg2');
+  if (msgDiv) { msgDiv.style.display = 'none'; msgDiv.textContent = ''; }
   if (!nombre) { alert('Por favor ingresa tu nombre.'); return; }
   if (typeof gtag === 'function') {
-    gtag('event', 'generate_lead', { event_category: 'formulario_contacto', event_label: 'seccion_contacto', value: 1 });
+    gtag('event', 'generate_lead', { event_category: 'formulario_contacto', event_label: motivo || 'contacto_general', value: 1 });
   }
   if (typeof fbq === 'function') {
-    fbq('track', 'Lead', { content_name: 'Formulario Contacto ClaroGlass', content_category: 'contacto_seccion' });
+    fbq('track', 'Lead', { content_name: motivo || 'Formulario Contacto ClaroGlass', content_category: 'contacto_seccion' });
   }
   btn.disabled = true;
   btn.textContent = 'Enviando...';
-  setTimeout(function(){
-    btn.disabled = false;
-    btn.textContent = 'ENVIAR SOLICITUD';
-    alert('¡Gracias! Te contactaremos pronto.');
-  }, 800);
+  var fd = new FormData();
+  fd.append('nombre', nombre);
+  fd.append('email', email);
+  fd.append('telefono', telefono);
+  fd.append('region', region);
+  fd.append('comuna', comuna);
+  fd.append('producto', motivo);
+  fd.append('como', como);
+  fd.append('mensaje', mensaje);
+  fetch('contact.php', { method: 'POST', body: fd })
+    .then(function(r){ return r.json(); })
+    .then(function(resp) {
+      if (resp && resp.success) {
+        if (msgDiv) { msgDiv.style.background='#e8f5e9'; msgDiv.style.color='#1b5e20'; msgDiv.textContent='\u00a1Gracias! Te contactaremos pronto.'; msgDiv.style.display='block'; }
+        else { alert('\u00a1Gracias! Te contactaremos pronto.'); }
+        document.getElementById('nombre2').value='';
+        if(document.getElementById('email2')) document.getElementById('email2').value='';
+        if(document.getElementById('telefono2')) document.getElementById('telefono2').value='';
+        document.getElementById('region2').value='';
+        document.getElementById('comuna2').innerHTML='<option value="">-- Comuna --<\/option>';
+        if(document.getElementById('motivo2')) document.getElementById('motivo2').value='';
+        if(document.getElementById('como2')) document.getElementById('como2').value='';
+        if(document.getElementById('mensaje2')) document.getElementById('mensaje2').value='';
+      } else {
+        if (msgDiv) { msgDiv.style.background='#fde8e8'; msgDiv.style.color='#c0392b'; msgDiv.textContent='Error al enviar. Por favor intenta nuevamente.'; msgDiv.style.display='block'; }
+        else { alert('Error al enviar. Por favor intenta nuevamente.'); }
+      }
+      btn.disabled = false;
+      btn.textContent = 'ENVIAR SOLICITUD';
+    })
+    .catch(function() {
+      if (msgDiv) { msgDiv.style.background='#fde8e8'; msgDiv.style.color='#c0392b'; msgDiv.textContent='Error de conexi\u00f3n. Por favor intenta nuevamente.'; msgDiv.style.display='block'; }
+      else { alert('Error de conexi\u00f3n. Por favor intenta nuevamente.'); }
+      btn.disabled = false;
+      btn.textContent = 'ENVIAR SOLICITUD';
+    });
 }
 </script>
 <!-- ============================================================
