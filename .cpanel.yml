@@ -1,0 +1,7 @@
+---
+deployment:
+  tasks:
+      - export DEPLOYPATH=/home/iruzspa1/claroglass.cl/
+          - /bin/cp index.html $DEPLOYPATH
+              - /bin/cp contact.php $DEPLOYPATH
+                  - /bin/cp -r assets $DEPLOYPATH
