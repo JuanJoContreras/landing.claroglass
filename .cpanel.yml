@@ -1,7 +1,7 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/iruzspa1/claroglass.cl/
+    - export DEPLOYPATH=/home/iruzspa1/public_html/claroglass.cl/
     - /bin/cp index.html $DEPLOYPATH
     - /bin/cp contact.php $DEPLOYPATH
     - /bin/cp .htaccess $DEPLOYPATH
