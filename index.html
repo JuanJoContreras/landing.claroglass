@@ -865,6 +865,7 @@ footer{padding:2rem .8rem 1rem}
 }
 
 .form-title{font-size:1.25rem;font-weight:700;color:#1a2332;margin:0 0 6px;}
+.skip-link:focus{left:0;width:auto;height:auto;overflow:visible;}
 </style>
 
 <script type="application/ld+json">
@@ -890,7 +891,7 @@ footer{padding:2rem .8rem 1rem}
     },
     {
       "@type": "Question",
-      "name": "¿El cierre filtra el agua y tiene buena estanqueidad?",
+      "name": "¿¿El cierre filtra el agua y tiene buena estanqueidad?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Sí. Nuestro sistema cuenta con burletes de silicona y perfiles con canalización interna que dirigen el agua al exterior. Alta hermeticidad que te protege contra el viento y la lluvia."
@@ -898,7 +899,7 @@ footer{padding:2rem .8rem 1rem}
     },
     {
       "@type": "Question",
-      "name": "¿Soporta vientos fuertes como los de Chile?",
+      "name": "¿¿Soporta vientos fuertes como los de Chile?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Sí. El sistema ClaroGlass está diseñado para las condiciones climáticas de Chile. Los cristales y el sistema de seguridad estructural garantizan la estabilidad frente a vientos fuertes."
@@ -914,7 +915,7 @@ footer{padding:2rem .8rem 1rem}
     },
     {
       "@type": "Question",
-      "name": "¿En cuánto tiempo instalan el sistema?",
+      "name": "¿¿En cuánto tiempo instalan el sistema?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "El tiempo de instalación depende de las dimensiones del proyecto. En promedio, una terraza estándar se instala en 2-3 días hábiles desde la fabricación del sistema."
@@ -925,6 +926,7 @@ footer{padding:2rem .8rem 1rem}
 </script>
 </head>
 <body>
+<a href="#main-content" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;z-index:9999;background:#1a6fa8;color:#fff;padding:.5rem 1rem;border-radius:0 0 4px 4px;font-weight:700;text-decoration:none;">Ir al contenido principal</a>
 <!-- NAV -->
 <nav id="navbar">
   <a class="nav-logo" href="#">
@@ -988,7 +990,7 @@ footer{padding:2rem .8rem 1rem}
         </div>
       </div>
     </div>
-    <div class="hero-form-wrap reveal">
+    <form class="hero-form-wrap reveal" method="post" onsubmit="event.preventDefault();enviarCotizacion(document.getElementById('btnCotizar'))">
       <p class="form-title">Solicita tu Cotización</p>
       <p class="form-sub">Te contactamos en menos de 24 horas</p>
       <div class="fg"><label for="nombre">Nombre completo</label><input type="text" id="nombre" name="nombre" autocomplete="name" placeholder="Nombre completo *" required></div>
@@ -1044,8 +1046,8 @@ footer{padding:2rem .8rem 1rem}
       </div>
       <div class="fg"><label for="mensaje">Mensaje (opcional)</label><textarea id="mensaje" name="mensaje" placeholder="Mensaje (opcional)"></textarea></div>
       <div id="form-msg" style="display:none;padding:.6rem;border-radius:6px;text-align:center;font-weight:600;margin-bottom:.5rem"></div>
-      <button class="btn-submit" id="btnCotizar" aria-label="Enviar solicitud de cotización" onclick="enviarCotizacion(this)">SOLICITAR COTIZACIÓN</button>
-    </div>
+      <button class="btn-submit" id="btnCotizar" aria-label="Enviar solicitud de cotización" type="submit">SOLICITAR COTIZACIÓN</button>
+    </form>
   </div>
   <div class="hero-dots" id="heroDots">
     <button class="hero-dot active" aria-label="Ir a la imagen 1 del carrusel" onclick="goSlide(0)"></button>
@@ -1055,7 +1057,7 @@ footer{padding:2rem .8rem 1rem}
 </section>
 
 <!-- STATS BAR -->
-<div class="stats-bar">
+<div id="main-content" class="stats-bar">
   <div class="stats-inner">
     <div class="stat-item reveal delay-1">
       <div class="stat-num" data-target="40000">0</div>
@@ -1494,7 +1496,7 @@ footer{padding:2rem .8rem 1rem}
     <div class="contacto-form-block reveal-left">
       <h2>¿Quieres saber más?</h2>
       <p class="sub">Completa tus datos y te contactamos en menos de 24 horas</p>
-      <div class="contact-form">
+      <form class="contact-form" method="post" onsubmit="event.preventDefault();enviarContacto(document.getElementById('btnContacto'))">
         <div class="fg"><label for="nombre2">Nombre completo</label><input type="text" id="nombre2" name="nombre2" autocomplete="name" placeholder="Nombre completo *" required></div>
         <div class="form-row">
           <div class="fg"><label for="email2">Correo electrónico</label><input type="email" id="email2" name="email2" autocomplete="email" placeholder="Correo electrónico *" required></div>
@@ -1549,8 +1551,8 @@ footer{padding:2rem .8rem 1rem}
         </div>
         <div class="fg"><label for="mensaje2">Mensaje</label><textarea id="mensaje2" name="mensaje2" placeholder="Mensaje"></textarea></div>
         <div id="form-msg2" style="display:none;padding:.6rem;border-radius:6px;text-align:center;font-weight:600;margin-bottom:.5rem"></div>
-        <button class="btn-submit" id="btnContacto" aria-label="Enviar solicitud de contacto" onclick="enviarContacto(this)">ENVIAR SOLICITUD</button>
-      </div>
+        <button class="btn-submit" id="btnContacto" aria-label="Enviar solicitud de contacto" type="submit">ENVIAR SOLICITUD</button>
+      </form>
     </div>
     <div class="contacto-info-block reveal-right">
       <h3>Contáctanos y Asesórate</h3>
@@ -1612,6 +1614,10 @@ footer{padding:2rem .8rem 1rem}
       <div class="footer-contact-item">
         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         <span>Lun - Vie: 9:00 - 18:00 hrs<br>Sab: 09:00 - 12:00 hrs</span>
+      </div>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="var(--gold)" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        <a href="https://www.instagram.com/claroglass.cl" target="_blank" rel="noopener noreferrer" aria-label="ClaroGlass en Instagram">@claroglass.cl</a>
       </div>
     </div>
   </div>
