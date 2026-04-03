@@ -863,7 +863,66 @@ footer{padding:2rem .8rem 1rem}
   .logo-cliente{height:65px;width:140px;padding:.6rem .8rem}
   .logo-cliente img{max-height:42px;max-width:115px}
 }
+
+.form-title{font-size:1.25rem;font-weight:700;color:#fff;margin:0 0 6px;}
 </style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué incluye la compra de los cierres para terrazas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La compra incluye el sistema completo: perfiles de aluminio, vidrios templados o laminados certificados, herrajes, sistema de deslizamiento en Teflón y la instalación profesional en tu terraza o quincho."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es el precio de un cierre de cortinas plegables de cristal para una terraza?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El precio depende de las dimensiones, el modelo de cristal y el color de perfilería elegido. Te invitamos a solicitar una cotización gratuita para recibir un presupuesto personalizado sin compromiso."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿El cierre filtra el agua y tiene buena estanqueidad?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Nuestro sistema cuenta con burletes de silicona y perfiles con canalización interna que dirigen el agua al exterior. Alta hermeticidad que te protege contra el viento y la lluvia."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Soporta vientos fuertes como los de Chile?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. El sistema ClaroGlass está diseñado para las condiciones climáticas de Chile. Los cristales y el sistema de seguridad estructural garantizan la estabilidad frente a vientos fuertes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué mantenimiento requiere el sistema?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El mantenimiento es mínimo: solo limpieza de vidrios con agua y detergente neutro. El sistema sin rodamientos en Teflón no requiere ajustes ni mantenciones programadas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿En cuánto tiempo instalan el sistema?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El tiempo de instalación depende de las dimensiones del proyecto. En promedio, una terraza estándar se instala en 2-3 días hábiles desde la fabricación del sistema."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <!-- NAV -->
@@ -903,7 +962,7 @@ footer{padding:2rem .8rem 1rem}
         Certificación Europea
       </div>
       <h1>CIERRES DE <span class="highlight">CRISTAL</span><br>SIN MANTENCIONES</h1>
-      <p>Transforma tú terraza o quincho con la tecnología más avanzada del mercado. Garantía de 9 años, sin rodamientos, sin complicaciones.</p>
+      <p>Transforma tu terraza o quincho con la tecnología más avanzada del mercado. Garantía de 9 años, sin rodamientos, sin complicaciones.</p>
       <div class="hero-btns">
         <a href="#contacto" class="btn-primary" aria-label="Solicitar cotización gratuita">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
@@ -930,14 +989,14 @@ footer{padding:2rem .8rem 1rem}
       </div>
     </div>
     <div class="hero-form-wrap reveal">
-      <h3>Solicita tu Cotización</h3>
+      <p class="form-title">Solicita tu Cotización</p>
       <p class="form-sub">Te contactamos en menos de 24 horas</p>
-      <div class="fg"><label for="nombre">Nombre completo</label><input type="text" id="nombre" name="nombre" placeholder="Nombre completo *" required></div>
-      <div class="fg"><label for="email">Correo electrónico</label><input type="email" id="email" name="email" placeholder="Correo electrónico *" required></div>
-      <div class="fg"><label for="telefono">Teléfono</label><input type="tel" id="telefono" name="telefono" placeholder="Teléfono *" required></div>
+      <div class="fg"><label for="nombre">Nombre completo</label><input type="text" id="nombre" name="nombre" autocomplete="name" placeholder="Nombre completo *" required></div>
+      <div class="fg"><label for="email">Correo electrónico</label><input type="email" id="email" name="email" autocomplete="email" placeholder="Correo electrónico *" required></div>
+      <div class="fg"><label for="telefono">Teléfono</label><input type="tel" id="telefono" name="telefono" autocomplete="tel" placeholder="Teléfono *" required></div>
       <div class="form-row">
         <div class="fg">
-          <label for="region">Región</label><select id="region" name="region">
+          <label for="region">Región</label><select id="region" name="region" autocomplete="address-level1">
             <option value="">-- Región --</option>
             <option>Región de Arica y Parinacota</option>
             <option>Región de Tarapacá</option>
@@ -1059,7 +1118,7 @@ footer{padding:2rem .8rem 1rem}
       <div class="beneficio-icon-wrap">
         <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
       </div>
-      <h4>Sin Mantencion</h4>
+      <h4>Sin Mantención</h4>
       <p>Deslizamiento en Teflon sin rodamientos. Sin ajustes ni mantenciones programadas. Disfruta sin complicaciones.</p>
     </div>
   </div>
@@ -1092,7 +1151,7 @@ footer{padding:2rem .8rem 1rem}
   <div class="section-head reveal">
     <span class="label">Lo que nos diferencia</span>
     <h2>Nuestros Diferenciadores</h2>
-    <p>Tecnología e ingeniería de alto nivel para superar los estandares del mercado</p>
+    <p>Tecnología e ingeniería de alto nivel para superar los estándares del mercado</p>
     <div class="title-line"></div>
   </div>
   <div class="dif-grid">
@@ -1160,13 +1219,13 @@ footer{padding:2rem .8rem 1rem}
       </span>
       <div class="producto-info">
         <h3>Cortinas Plegables de Cristal</h3>
-        <p>Sistema de cerramiento usado en terrazas de departamentos, quinchos de casas, para todo espacio donde sea conveniente controlar la interaccion con el entorno. Fabricados bajo estrictos estándares de calidad y tecnología europea.</p>
+        <p>Sistema de cerramiento usado en terrazas de departamentos, quinchos de casas, para todo espacio donde sea conveniente controlar la interacción con el entorno. Fabricados bajo estrictos estándares de calidad y tecnología europea.</p>
         <ul class="check-list">
           <li><span class="check-icon">✓</span>Sin perfiles verticales: visión continua de tu terraza o quincho.</li>
           <li><span class="check-icon">✓</span> Sin Rodamientos, Pista deslizante de Teflón: silencioso y sin fricción.</li>
           <li><span class="check-icon">✓</span>El sistema mas hermético, seguro y estanco del mercado.</li>
           <li><span class="check-icon">✓</span>Componentes certificados bajo normativas europeas.</li>
-          <li><span class="check-icon">✓</span>Garantia del sistema de 9 años.</li>
+          <li><span class="check-icon">✓</span>Garantía del sistema de 9 años.</li>
         </ul>
         <a href="#contacto" class="btn-green">
           <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
@@ -1191,7 +1250,7 @@ footer{padding:2rem .8rem 1rem}
             <li><span class="check-icon">✓</span>Gran resistencia a impacto y cambios de temperatura.</li>
             <li><span class="check-icon">✓</span>Herrajes de acero inoxidable de alta calidad.</li>
             <li><span class="check-icon">✓</span>No requieren ajustes ni mantenciones programadas.</li>
-            <li><span class="check-icon">✓</span>GarantÍa de 5 años.</li>
+            <li><span class="check-icon">✓</span>Garantía de 5 años.</li>
           </ul>
           <a href="#contacto" class="btn-green">
             <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
@@ -1250,7 +1309,7 @@ footer{padding:2rem .8rem 1rem}
     </div>
     <div class="color-item reveal delay-3">
       <div class="color-circle" style="background:linear-gradient(135deg,#7a4f2c,#c47a3a)"></div>
-      <span>Simil Madera</span>
+      <span>Símil Madera</span>
     </div>
     <div class="color-item reveal delay-4">
       <div class="color-circle" style="background:#f0f0f0;border:2px solid #ccc"></div>
@@ -1297,7 +1356,7 @@ footer{padding:2rem .8rem 1rem}
     </div>
     <div class="galeria-item-sm reveal delay-3">
       <img loading="lazy" src="assets/img/lucarna-terraza-montaña-02.jpg" alt="Proyecto residencial cristal">
-      <div class="galeria-caption-sm"><p>Estructuta + Cierre de Cristal - Pucón</p></div>
+      <div class="galeria-caption-sm"><p>Estructura + Cierre de Cristal - Pucón</p></div>
     </div>
     <div class="galeria-item-sm reveal delay-1">
       <img loading="lazy" src="assets/img/cierre-cristal-terraza-montaña.jpg" alt="Cierre cristal departamento">
@@ -1313,7 +1372,7 @@ footer{padding:2rem .8rem 1rem}
     </div>
     <div class="galeria-item-sm reveal delay-1">
       <img loading="lazy" src="assets/img/cierre-cristal-viña-mar.jpg" alt="Cierre terraza balcon">
-      <div class="galeria-caption-sm"><p>Cortina Plegable - Antofasta</p></div>
+      <div class="galeria-caption-sm"><p>Cortina Plegable - Antofagasta</p></div>
     </div>
     <div class="galeria-item-sm reveal delay-2">
       <img loading="lazy" src="assets/img/cierre-cristal-laguna.jpg" alt="Cierre cristal con laguna">
@@ -1361,7 +1420,7 @@ footer{padding:2rem .8rem 1rem}
   <div class="faq-inner">
     <div class="faq-item reveal delay-1">
       <button class="faq-question" onclick="toggleFaq(this)">
-        Qué incluye la compra de los cierres para terrazas?
+        ¿Qué incluye la compra de los cierres para terrazas?
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-answer">
@@ -1370,7 +1429,7 @@ footer{padding:2rem .8rem 1rem}
     </div>
     <div class="faq-item reveal delay-2">
       <button class="faq-question" onclick="toggleFaq(this)">
-        Cuál es el precio de un cierre de cortinas plegables de cristal para una terraza ?
+        ¿Cuál es el precio de un cierre de cortinas plegables de cristal para una terraza?
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-answer">
@@ -1397,7 +1456,7 @@ footer{padding:2rem .8rem 1rem}
     </div>
     <div class="faq-item reveal delay-5">
       <button class="faq-question" onclick="toggleFaq(this)">
-        Qué mantenimiento requiere el sistema?
+        ¿Qué mantenimiento requiere el sistema?
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-answer">
@@ -1420,7 +1479,7 @@ footer{padding:2rem .8rem 1rem}
 <section class="cta-banner">
   <div class="cta-bg"></div>
   <div class="cta-content reveal">
-    <h2>Transforma tú Terraza Hoy</h2>
+    <h2>Transforma tu Terraza Hoy</h2>
     <p>Solicita una cotización gratuita y sin compromiso. Te asesoramos en todo el proceso.</p>
     <a href="#contacto" class="btn-outline">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.63 19.79 19.79 0 01.22 1.02 2 2 0 012.22 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z"/></svg>
@@ -1433,17 +1492,17 @@ footer{padding:2rem .8rem 1rem}
 <section id="contacto" class="contacto-section">
   <div class="contacto-inner">
     <div class="contacto-form-block reveal-left">
-      <h2>Quieres saber más?</h2>
+      <h2>¿Quieres saber más?</h2>
       <p class="sub">Completa tus datos y te contactamos en menos de 24 horas</p>
       <div class="contact-form">
-        <div class="fg"><label for="nombre2">Nombre completo</label><input type="text" id="nombre2" name="nombre2" placeholder="Nombre completo *" required></div>
+        <div class="fg"><label for="nombre2">Nombre completo</label><input type="text" id="nombre2" name="nombre2" autocomplete="name" placeholder="Nombre completo *" required></div>
         <div class="form-row">
-          <div class="fg"><label for="email2">Correo electrónico</label><input type="email" id="email2" name="email2" placeholder="Correo electrónico *" required></div>
-          <div class="fg"><label for="telefono2">Teléfono</label><input type="tel" id="telefono2" name="telefono2" placeholder="Teléfono *" required></div>
+          <div class="fg"><label for="email2">Correo electrónico</label><input type="email" id="email2" name="email2" autocomplete="email" placeholder="Correo electrónico *" required></div>
+          <div class="fg"><label for="telefono2">Teléfono</label><input type="tel" id="telefono2" name="telefono2" autocomplete="tel" placeholder="Teléfono *" required></div>
         </div>
         <div class="form-row">
           <div class="fg">
-            <label for="region2">Región</label><select id="region2" name="region2">
+            <label for="region2">Región</label><select id="region2" name="region2" autocomplete="address-level1">
               <option value="">-- Región --</option>
               <option>Región de Arica y Parinacota</option>
               <option>Región de Tarapacá</option>
