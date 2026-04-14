@@ -11,7 +11,7 @@
 <meta name="keywords" content="cierres plegables de cristal, cortinas de cristal, barandas de cristal, lucarnas de cristal, cierres terraza Santiago, cierres quincho, ClaroGlass Chile, Cristales Sistemas Perfiles, cierre plegable terraza, cierre cristal balcon, cortinas cristal chile">
 <meta name="robots" content="index, follow">
 <meta name="author" content="ClaroGlass">
-<meta name="geo.region" content="CL">
+<meta name="geo.region" content="CL">hh
 <meta name="geo.placename" content="Santiago, Chile">
 <link rel="canonical" href="https://claroglass.cl/">
   <link rel="sitemap" type="application/xml" title="Sitemap" href="https://claroglass.cl/sitemap.xml">
@@ -143,7 +143,10 @@ nav.scrolled{
 .nav-link-proveedor:hover{color:var(--gold-light)!important;}
 .nav-link-proveedor::after{background:var(--gold)!important;}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:.5rem}
-.hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:var(--transition)}
+.hamburger span{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:transform .3s ease,opacity .3s ease}
+.hamburger.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.active span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
 /* ===== HERO ===== */
 .hero{
@@ -1724,13 +1727,18 @@ function toggleFaq(btn) {
 // ===== MOBILE MENU =====
 function toggleMenu() {
   const links = document.getElementById('navLinks');
-  links.classList.toggle('open');
+  const btn = document.getElementById('hamburger');
+  const isOpen = links.classList.toggle('open');
+  btn.classList.toggle('active', isOpen);
+  btn.setAttribute('aria-expanded', isOpen);
 }
 document.addEventListener('click', (e) => {
   const links = document.getElementById('navLinks');
   const ham = document.getElementById('hamburger');
   if (!links.contains(e.target) && !ham.contains(e.target)) {
     links.classList.remove('open');
+    document.getElementById('hamburger').classList.remove('active');
+    document.getElementById('hamburger').setAttribute('aria-expanded', 'false');
   }
 });
 // close menu on link click
