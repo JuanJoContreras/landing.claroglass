@@ -1830,13 +1830,14 @@ function enviarCotizacion(btn) {
       msgDiv.style.background = '#e8f5e9';
       msgDiv.style.color = '#1b5e20';
       msgDiv.textContent = '¡Gracias! Tu cotización fue enviada. Te contactaremos pronto.';
+      btn.style.display = 'none';
       document.getElementById('nombre').value = '';
       document.getElementById('email').value = '';
       document.getElementById('telefono').value = '';
-      document.getElementById('region').value = '';
-      document.getElementById('comuna').innerHTML = '<option value="">-- Comuna --<\/option>';
-      document.getElementById('producto').value = '';
-      document.getElementById('como').value = '';
+      document.getElementById('region').selectedIndex = 0;
+      document.getElementById('comuna').innerHTML = '<option value="">-- Comuna --</option>';
+      document.getElementById('producto').selectedIndex = 0;
+      document.getElementById('como').selectedIndex = 0;
       document.getElementById('mensaje').value = '';
     } else {
       msgDiv.style.background = '#fde8e8';
