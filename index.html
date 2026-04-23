@@ -5,7 +5,7 @@
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+'https://www.googletagmanager.com/gtm.js?id='+ih+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-KC6K7S25');</script>
 <!-- End Google Tag Manager -->
 <meta charset="UTF-8">
@@ -1875,12 +1875,6 @@ function enviarContacto(btn) {
   var msgDiv   = document.getElementById('form-msg2');
   if (msgDiv) { msgDiv.style.display = 'none'; msgDiv.textContent = ''; }
   if (!nombre) { alert('Por favor ingresa tu nombre.'); return; }
-  if (typeof gtag === 'function') {
-    gtag('event', 'generate_lead', { event_category: 'formulario_contacto', event_label: motivo || 'contacto_general', value: 1 });
-  }
-  if (typeof fbq === 'function') {
-    fbq('track', 'Lead', { content_name: motivo || 'Formulario Contacto ClaroGlass', content_category: 'contacto_seccion' });
-  }
   btn.disabled = true;
   btn.textContent = 'Enviando...';
   var fd = new FormData();
@@ -1896,6 +1890,9 @@ function enviarContacto(btn) {
     .then(function(r){ return r.json(); })
     .then(function(resp) {
       if (resp && resp.success) {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'generate_lead', form_type: 'contacto', motivo: motivo || 'contacto_general' });
+        if (typeof fbq === 'function') { fbq('track', 'Lead', { content_name: motivo || 'Formulario Contacto ClaroGlass', content_category: 'contacto_seccion' }); }
         if (msgDiv) { msgDiv.style.background='#e8f5e9'; msgDiv.style.color='#1b5e20'; msgDiv.textContent='\u00a1Gracias! Te contactaremos pronto.'; msgDiv.style.display='block'; }
         else { alert('\u00a1Gracias! Te contactaremos pronto.'); }
         document.getElementById('nombre2').value='';
