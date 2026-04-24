@@ -1825,18 +1825,7 @@ function enviarCotizacion(btn) {
         fbq('track', 'Lead', { content_name: 'Formulario Hero ClaroGlass', content_category: producto || 'cotizacion_general' });
       }
       // === FIN TRACKING ===
-      msgDiv.style.background = '#e8f5e9';
-      msgDiv.style.color = '#1b5e20';
-      msgDiv.textContent = '¡Gracias! Tu cotización fue enviada. Te contactaremos pronto.';
-      btn.style.display = 'none';
-      document.getElementById('nombre').value = '';
-      document.getElementById('email').value = '';
-      document.getElementById('telefono').value = '';
-      document.getElementById('region').selectedIndex = 0;
-      document.getElementById('comuna').innerHTML = '<option value="">-- Comuna --</option>';
-      document.getElementById('producto').selectedIndex = 0;
-      document.getElementById('como').selectedIndex = 0;
-      document.getElementById('mensaje').value = '';
+      window.location.href = '/gracias.html';
     } else {
       msgDiv.style.background = '#fde8e8';
       msgDiv.style.color = '#c0392b';
@@ -1893,16 +1882,7 @@ function enviarContacto(btn) {
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({ event: 'generate_lead', form_type: 'contacto', motivo: motivo || 'contacto_general' });
         if (typeof fbq === 'function') { fbq('track', 'Lead', { content_name: motivo || 'Formulario Contacto ClaroGlass', content_category: 'contacto_seccion' }); }
-        if (msgDiv) { msgDiv.style.background='#e8f5e9'; msgDiv.style.color='#1b5e20'; msgDiv.textContent='\u00a1Gracias! Te contactaremos pronto.'; msgDiv.style.display='block'; }
-        else { alert('\u00a1Gracias! Te contactaremos pronto.'); }
-        document.getElementById('nombre2').value='';
-        if(document.getElementById('email2')) document.getElementById('email2').value='';
-        if(document.getElementById('telefono2')) document.getElementById('telefono2').value='';
-        document.getElementById('region2').value='';
-        document.getElementById('comuna2').innerHTML='<option value="">-- Comuna --<\/option>';
-        if(document.getElementById('motivo2')) document.getElementById('motivo2').value='';
-        if(document.getElementById('como2')) document.getElementById('como2').value='';
-        if(document.getElementById('mensaje2')) document.getElementById('mensaje2').value='';
+        window.location.href = '/gracias.html';
       } else {
         if (msgDiv) { msgDiv.style.background='#fde8e8'; msgDiv.style.color='#c0392b'; msgDiv.textContent='Error al enviar. Por favor intenta nuevamente.'; msgDiv.style.display='block'; }
         else { alert('Error al enviar. Por favor intenta nuevamente.'); }
