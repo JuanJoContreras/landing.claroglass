@@ -7,3 +7,5 @@ deployment:
     - /bin/cp politica-de-privacidad.html $DEPLOYPATH
     - /bin/cp .htaccess $DEPLOYPATH
     - /bin/cp -R assets/. $DEPLOYPATH/assets/
+    - /bin/cp gracias.html $DEPLOYPATH
+    - /bin/cp sitemap.xml $DEPLOYPATH
