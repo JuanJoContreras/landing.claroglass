@@ -1050,7 +1050,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </select>
       </div>
       <div class="fg"><label for="mensaje">Tipo de Espacio</label><textarea id="mensaje" name="mensaje" placeholder="Dimensiones aproximadas, quincho o terraza, forma: Recta, L o U"></textarea></div>
-      <div id="form-msg" style="display:none;padding:.6rem;border-radius:6px;text-align:center;font-weight:600;margin-bottom:.5rem"></div>
+      <input type="hidden" name="gclid" id="gclid_hero">
+<div id="form-msg" style="display:none;padding:.6rem;border-radius:6px;text-align:center;font-weight:600;margin-bottom:.5rem"></div>
       <button class="btn-submit" id="btnCotizar" aria-label="Enviar solicitud de cotización" type="submit">SOLICITAR COTIZACIÓN</button>
     </form>
   </div>
@@ -1555,7 +1556,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </select>
         </div>
         <div class="fg"><label for="mensaje2">Tipo de Espacio</label><textarea id="mensaje2" name="mensaje2" placeholder="Dimensiones aproximadas, quincho o terraza, forma: Recta, L o U"></textarea></div>
-        <div id="form-msg2" style="display:none;padding:.6rem;border-radius:6px;text-align:center;font-weight:600;margin-bottom:.5rem"></div>
+        <input type="hidden" name="gclid" id="gclid_contacto">
+<div id="form-msg2" style="display:none;padding:.6rem;border-radius:6px;text-align:center;font-weight:600;margin-bottom:.5rem"></div>
         <button class="btn-submit" id="btnContacto" aria-label="Enviar solicitud de contacto" type="submit">ENVIAR SOLICITUD</button>
       </form>
     </div>
@@ -1783,6 +1785,8 @@ document.querySelectorAll('.nav-links a').forEach(a => {
 </script>
 
 <script>
+(function(){ var g=new URLSearchParams(window.location.search).get('gclid'); if(g) sessionStorage.setItem('gclid',g); })();
+
 function enviarCotizacion(btn) {
   var nombre = document.getElementById('nombre').value.trim();
   var email = document.getElementById('email').value.trim();
@@ -1813,6 +1817,7 @@ function enviarCotizacion(btn) {
   fd.append('producto', producto);
   fd.append('como', como);
   fd.append('mensaje', mensaje);
+  fd.append('gclid', sessionStorage.getItem('gclid') || '');
   fetch('contact.php', { method: 'POST', body: fd })
   .then(function(r){ return r.json(); })
   .then(function(resp) {
@@ -1875,6 +1880,7 @@ function enviarContacto(btn) {
   fd.append('producto', motivo);
   fd.append('como', como);
   fd.append('mensaje', mensaje);
+  fd.append('gclid', sessionStorage.getItem('gclid') || '');
   fetch('contact.php', { method: 'POST', body: fd })
     .then(function(r){ return r.json(); })
     .then(function(resp) {
