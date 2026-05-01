@@ -17,6 +17,7 @@ $comuna    = htmlspecialchars(trim($_POST['comuna']    ?? ''));
 $producto  = htmlspecialchars(trim($_POST['producto']  ?? ''));
 $como      = htmlspecialchars(trim($_POST['como']      ?? ''));
 $mensaje   = htmlspecialchars(trim($_POST['mensaje']   ?? ''));
+$gclid     = htmlspecialchars(trim($_POST['gclid']     ?? ''));
 
 if (!$nombre || !$email || !$telefono) {
     echo json_encode(['success' => false, 'message' => 'Faltan campos obligatorios']);
@@ -76,6 +77,7 @@ $html = '<!DOCTYPE html>
             <strong style="color:#0c2340;">Comuna:</strong> ' . ($comuna ?: '—') . '<br>
             <strong style="color:#0c2340;">Producto de inter&eacute;s:</strong> ' . ($producto ?: '—') . '<br>
             <strong style="color:#0c2340;">C&oacute;mo nos conocio:</strong> ' . ($como ?: '—') . '
+        <br><strong style="color:#0c2340;">GCLID:</strong> ' . ($gclid ?: '-') . '
           </td></tr>
 
         </table>
